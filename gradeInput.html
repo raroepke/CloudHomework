@@ -24,6 +24,8 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.ja"></script>
         <script>
             // ajax script
+        var username = "tempUser";
+        var password="tempPass";
         $("#ajaxSubmit").click(function(){
 
                 var id = $("#studentID").val();
@@ -33,6 +35,9 @@
                     url: 'input-service.php',
                     type: 'post',
                     data: {'studentID' : id, 'grades': grade },
+                    headers: {
+                        "Authorization": "Basic " + btoa(username + ":" + password)
+                    },
                     success: function (data,statuss)
                     {
                         if (status == "success")
@@ -71,10 +76,16 @@
             <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
             <script>
+            var username = "tempUser";
+            var password="tempPass";
+
                 $("#loadGrades").click(function(){
                     $.ajax({
                         url: 'viewer-service.php',
                         type: 'get',
+                        headers: {
+                            "Authorization": "Basic " + btoa(username + ":" + password)
+                        },
                         success: function(data,status)
                         {
                             if(status == "success")
