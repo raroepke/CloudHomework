@@ -1,8 +1,8 @@
 <?php 
-$cloudhost = "...azure.net"; //endpoint that we will get from azure
+$cloudhost = "https://gradesdatabase.azurewebsites.net/"; //endpoint that we will get from azure
 $username = "un";
 $password = "pw";
-$database = "gradesDB";
+$database = "gradedatabase";
 
 $conn = new mysqli($cloudhost, $username, $password, $database);
 
