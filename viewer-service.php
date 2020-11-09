@@ -10,7 +10,7 @@ catch (PDOException $e) {
 }
 
 //get grades from database
-if ($result = $conn -> query("SELECT studentID, AVG(grades) FROM gradesTable GROUP BY studentID")) {
+if ($result = $conn -> query("SELECT studentID, AVG(grades) FROM GradesTable GROUP BY studentID")) {
 ?>
 
 <table>
