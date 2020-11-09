@@ -2,7 +2,7 @@
 $cloudhost = "...azure.net";
 $username = "un";
 $pasword = "pw";
-$database = "gradesDB";
+$database = "realgradesdbserver";
 
 $conn = new mysqli($cloudhost, $username, $password, $database);
 
