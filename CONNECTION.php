@@ -1,0 +1,1 @@
+$con=mysqli_init(); mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL); mysqli_real_connect($con, "gradedatabase.mysql.database.azure.com", "raroepke@gradedatabase", {your_password}, {your_database}, 3306);
