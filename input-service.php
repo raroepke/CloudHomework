@@ -1,16 +1,12 @@
-<?php 
-$con=mysqli_init(); mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL); mysqli_real_connect($con, "realgradesdbserver.mysql.database.azure.com", "raroepke@realgradesdbserver", {your_password}, {your_database}, 3306);
-
-$cloudhost = "https://gradesdatabase.azurewebsites.net/"; //endpoint that we will get from azure
-$username = "un";
-$password = "pw";
-$database = "realgradesdbserver";
-
-$conn = new mysqli($cloudhost, $username, $password, $database);
-
-//check connection
-if($conn -> connect_errno){
-    die("Failed to connect to MySQL: " . $conn -> connect_error);
+<?php
+// PHP Data Objects(PDO) Sample Code:
+try {
+    $conn = new PDO("sqlsrv:server = tcp:gradesdbserver.database.windows.net,1433; Database = gradesdatabase", "raroepke", "{your_password_here}");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
 }
 
 //accept grades from either form or AJAX request
