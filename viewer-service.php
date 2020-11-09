@@ -1,5 +1,5 @@
 <?php
-$cloudhost = "...azure.net";
+$cloudhost = "https://gradesdatabase.azurewebsites.net/";
 $username = "un";
 $pasword = "pw";
 $database = "realgradesdbserver";
