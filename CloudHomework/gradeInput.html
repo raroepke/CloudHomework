@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Grade Input</title>
+    </head>
+    <body>
+        <h1>Grade Input</h1>
+        <h2>Simple</h2>
+
+        <form method="post" action="input-service.php">
+            <label for="studentID">Student ID: </label><br><br>
+            <input type="text" id="studentID"><br><br>
+
+            <label for="grades">Grades: </label><br><br>
+            <input type="number" id="grades"><br><br>
+
+            <input type="submit" value="Update">
+        </form>
+        
+        <hr>
+
+        <h2>AJAX</h2>
+        <button id="ajaxSubmit">Update via AJAX</button>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.ja"></script>
+        <script>
+            // ajax script
+        $("#ajaxSubmit").click(function(){
+
+                var id = $("#studentID").val();
+                var grade = $("#grades").val();
+
+                $.ajax({
+                    url: 'input-service.php',
+                    type: 'post',
+                    data: {'studentID' : id, 'grades': grade },
+                    success: function (data,statuss)
+                    {
+                        if (status == "success")
+                        {
+                            alert("Grade Submitted!");
+                            $("#studentID").val("");
+                            $("#grade").val("");
+                        }
+                    },
+                    error: function (xhr, desc,err)
+                    {
+                        console.log(xhr);
+                        console.log("Details: " + desc + "\nError:" + err);
+                    }
+                });
+        });
+        </script>
+    </body>
+</html>
