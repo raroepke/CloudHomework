@@ -1,4 +1,6 @@
 <?php 
+$con=mysqli_init(); mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL); mysqli_real_connect($con, "realgradesdbserver.mysql.database.azure.com", "raroepke@realgradesdbserver", {your_password}, {your_database}, 3306);
+
 $cloudhost = "https://gradesdatabase.azurewebsites.net/"; //endpoint that we will get from azure
 $username = "un";
 $password = "pw";
