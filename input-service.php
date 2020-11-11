@@ -1,14 +1,12 @@
 <?php
-$host = 'gradesdbserver.database.windows.net';
-$username = 'raroepke';
-$password = 'hellohello_22';
-$db_name = 'gradesdatabase';
-
-//Establishes the connection
-$conn = mysqli_init();
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
+// PHP Data Objects(PDO) Sample Code:
+try {
+    $conn = new PDO("sqlsrv:server = tcp:gradesdbserver.database.windows.net,1433; Database = gradesdatabase", "raroepke", "hellohello_22");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
 }
 //accept grades from either form or AJAX request
 $studentID = $_POST["studentID"];
