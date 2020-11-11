@@ -8,4 +8,11 @@ catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
+
+
+$stmt = $conn->query("SELECT * FROM GradesTable");
+while ($row = $stmt->fetch()) {
+    echo $row['grades']."<br />\n";
+}
+
 ?>
