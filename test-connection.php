@@ -15,4 +15,8 @@ while ($row = $stmt->fetch()) {
     echo $row['grades']."<br />\n";
 }
 
+
+$sql = "INSERT INTO GradesTable (studentID, grades) VALUES (?,?)";
+$stmt= $conn->prepare($sql);
+$stmt->execute([$studentID, $grades]);
 ?>
